@@ -19,7 +19,5 @@ public class LinearEquationRunner {
         System.out.println(x2);
         System.out.println(y1);
         System.out.println(y2);
-
-        LinearEquation lineOne = new LinearEquation(x1, x2, y1, y2);
     }
 }
