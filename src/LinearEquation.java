@@ -19,7 +19,7 @@ public class LinearEquation {
 
     public void LineInfo(){
         System.out.println("The points are: (" + x1 + ", " + y1 + "), " + "(" + x2 + ", " + y2 + ").");
-        System.out.println("The y-intercept is " + calculateIntercept() + ".");
+        System.out.println("The y-intercept is " + calculateIntercept(x1, x2, y1, y2) + ".");
     }
 
     public double calculateSlope(int x1, int x2, int y1, int y2){
