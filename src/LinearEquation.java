@@ -3,6 +3,7 @@ public class LinearEquation {
     int x2;
     int y1;
     int y2;
+    double intercept;
 
     public void LinearEquation(int x1, int x2, int y1, int y2){
         this.x1 = x1;
@@ -11,7 +12,7 @@ public class LinearEquation {
         this.y2 = y2;
 
         double slope = calculateSlope(x1, x2, y1, y2);
-        double intercept = calculateIntercept(slope, x1, y1);
+        this.intercept = calculateIntercept(slope, x1, y1);
         double distance = calculateDistance(x1, x2, y1, y2);
 
         String formula = ("y = " + slope + "x + (" + intercept + ")");
@@ -19,7 +20,7 @@ public class LinearEquation {
 
     public void LineInfo(){
         System.out.println("The points are: (" + x1 + ", " + y1 + "), " + "(" + x2 + ", " + y2 + ").");
-        System.out.println("The y-intercept is " + calculateIntercept(x1, x2, y1, y2) + ".");
+        System.out.println("The y-intercept is " + intercept + ".");
     }
 
     public double calculateSlope(int x1, int x2, int y1, int y2){
