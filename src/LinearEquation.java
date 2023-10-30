@@ -4,23 +4,29 @@ public class LinearEquation {
     int y1;
     int y2;
     double intercept;
+    double distance;
+    double slope;
+    String formula;
 
-    public void LinearEquation(int x1, int x2, int y1, int y2){
+    public LinearEquation(int x1, int x2, int y1, int y2){
         this.x1 = x1;
         this.x2 = x2;
         this.y1 = y1;
         this.y2 = y2;
 
-        double slope = calculateSlope(x1, x2, y1, y2);
+        this.slope = calculateSlope(x1, x2, y1, y2);
         this.intercept = calculateIntercept(slope, x1, y1);
-        double distance = calculateDistance(x1, x2, y1, y2);
+        this.distance = calculateDistance(x1, x2, y1, y2);
 
-        String formula = ("y = " + slope + "x + (" + intercept + ")");
+        this.formula = ("y = " + slope + "x + (" + intercept + ")");
     }
 
     public void LineInfo(){
         System.out.println("The points are: (" + x1 + ", " + y1 + "), " + "(" + x2 + ", " + y2 + ").");
-        System.out.println("The y-intercept is " + intercept + ".");
+        System.out.println("The equation for this line is: " + slope + "x + " + intercept + ".");
+        System.out.println("The slope of this line is " + slope + ".");
+        System.out.println("The y-intercept for this line is " + intercept + ".");
+        System.out.println("The distance between these points is " + distance + ".");
     }
 
     public double calculateSlope(int x1, int x2, int y1, int y2){
@@ -32,6 +38,11 @@ public class LinearEquation {
     }
 
     public double calculateDistance(int x1, int x2, int y1, int y2){
-        return Math.abs(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
+        double length = (Math.pow((x2 - x1), 2) + (Math.pow((y2 - y1), 2)));
+        return Math.sqrt(length);
+    }
+
+    public double findPoint(double x) {
+        return (x * slope) + intercept;
     }
 }
